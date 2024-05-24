@@ -2,21 +2,30 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
-    <title>untitled</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
+    <title>平面検出AR</title>
   </head>
-  <body>
-    <a-scene embedded arjs>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: planar; detectionMode: mono_and_matrix;"
+    >
       <a-assets>
         <!-- 3Dモデルデータ -->
         <a-asset-item id="tree-obj" src="../assets/object/Lowpoly_tree_sample.obj"></a-asset-item>
         <!-- マテリアルデータ -->
         <a-asset-item id="tree-mtl" src="../assets/object/Lowpoly_tree_sample.mtl"></a-asset-item>
       </a-assets>
-      <!-- 3Dモデルの配置 -->
-      <a-obj-model id="tree" src="#tree-obj" mtl="#tree-mtl" position="5 1 -6" scale="1 1 1" rotation="0 90 0"></a-obj-model>
-      <a-box position="5 0 -7" rotation="0 45 0" color="#4CC3D9"></a-box>
+      
+      <!-- 平面検出用アンカー -->
+      <a-anchor hit-testing>
+        <!-- 3Dモデルの配置 -->
+        <a-obj-model id="tree" src="#tree-obj" mtl="#tree-mtl" scale="1 1 1" rotation="0 90 0"></a-obj-model>
+      </a-anchor>
+      
+      <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
   </body>
 </html>
