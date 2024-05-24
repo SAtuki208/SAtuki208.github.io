@@ -19,7 +19,7 @@
       <!-- 壁を表示 -->
       <a-plane id="wall" width="20" height="20" rotation="0 0 0" color="#DDDDDD" material="visible: false" shadow></a-plane>
       <!-- 床と壁の検知を有効にする -->
-      <a-marker-camera preset="hiro" raycaster="objects: [arjs-hit-test]" arjs="debugUIEnabled: false;"></a-marker-camera>
+      <a-marker-camera preset="hiro" arjs-hit-testing="debugUIEnabled: false;"></a-marker-camera>
       <!-- 3Dモデルの配置 -->
       <a-obj-model id="tree" src="#tree-obj" mtl="#tree-mtl" position="0 0 0" scale="0.01 0.01 0.01" rotation="0 90 0"></a-obj-model>
     </a-scene>
