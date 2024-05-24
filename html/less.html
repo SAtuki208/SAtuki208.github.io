@@ -8,6 +8,14 @@
   </head>
   <body>
     <a-scene embedded arjs>
+      <a-assets>
+        <!-- 3Dモデルデータ -->
+        <a-asset-item id="tree-obj" src="../assets/object/Lowpoly_tree_sample.obj"></a-asset-item>
+        <!-- マテリアルデータ -->
+        <a-asset-item id="tree-mtl" src="../assets/object/Lowpoly_tree_sample.mtl"></a-asset-item>
+      </a-assets>
+      <!-- 3Dモデルの配置 -->
+      <a-obj-model id="tree" src="#tree-obj" mtl="#tree-mtl" position="0 0 0" scale="800 800 800" rotation="0 0 0"></a-obj-model>
       <a-box position="5 0 -7" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
