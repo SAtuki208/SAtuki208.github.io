@@ -1,32 +1,23 @@
-<!doctype HTML>
-<html lang="ja">
-  <head>
+<!DOCTYPE html>
+<html>
+
+<head>
     <meta charset="utf-8" />
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
-    <title>平面検出AR</title>
-  </head>
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene
-      vr-mode-ui="enabled: false"
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: planar; detectionMode: mono_and_matrix;"
-    >
-      <a-assets>
-        <!-- 3Dモデルデータ -->
-        <a-asset-item id="tree-obj" src="../assets/object/Lowpoly_tree_sample.obj"></a-asset-item>
-        <!-- マテリアルデータ -->
-        <a-asset-item id="tree-mtl" src="../assets/object/Lowpoly_tree_sample.mtl"></a-asset-item>
-      </a-assets>
-      
-      <!-- 平面検出用アンカー -->
-      <a-anchor hit-testing>
-        <!-- 3Dモデルの配置 -->
-        <a-obj-model id="tree" src="#tree-obj" mtl="#tree-mtl" scale="1 1 1" rotation="0 90 0"></a-obj-model>
-      </a-anchor>
-      
-      <a-camera gps-camera rotation="0 180 0"></a-camera>
-      <!-- <a-camera gps-camera></a-camera> <a-camera gps-camera rotation-reader></a-camera> -->
-      </a-scene>
-  </body>
+    <title>Location-based AR.js demo</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+
+        <a-box material="color: red" gps-entity-place="latitude: 43.065112; longitude: 141.361493;" scale="0.5 0.8 0.5"></a-box>
+
+        <a-camera gps-camera rotation-reader> </a-camera>
+
+    </a-scene>
+
+</body>
+
 </html>
